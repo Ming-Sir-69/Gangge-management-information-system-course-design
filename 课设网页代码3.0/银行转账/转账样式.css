@@ -1,0 +1,190 @@
+/* 修改后的样式，苹果官网白天模式风格 */
+body, html {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #ffffff; /* 白色背景 */
+    font-family: "SF Pro Text", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    color: #1d1d1f; /* 深灰色字体 */
+}
+
+.container {
+    max-width: 600px;
+    width: 100%;
+    padding: 20px;
+    background-color: #f5f5f7; /* 浅灰色背景 */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    border-radius: 12px; /* 更大的圆角 */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid #e0e0e0; /* 浅灰色边框 */
+    padding-bottom: 10px;
+}
+
+.back-button {
+    background: none;
+    border: none;
+    font-size: 16px;
+    color: #007aff; /* 苹果蓝色 */
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.back-button:hover {
+    color: #005bb5; /* 悬停时的深蓝色 */
+}
+
+h1 {
+    font-size: 24px;
+    margin: 0;
+    font-weight: 600;
+    color: #1d1d1f; /* 深灰色字体 */
+}
+
+section {
+    margin-top: 20px;
+}
+
+h2 {
+    font-size: 18px;
+    margin-bottom: 10px;
+    font-weight: 500;
+    color: #1d1d1f; /* 深灰色字体 */
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 500;
+    color: #1d1d1f; /* 深灰色字体 */
+}
+
+input[type="text"], input[type="number"] {
+    width: calc(100% - 40px);
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #e0e0e0; /* 浅灰色边框 */
+    border-radius: 6px; /* 更大的圆角 */
+    font-size: 16px;
+    background-color: #ffffff; /* 白色背景 */
+    color: #1d1d1f; /* 深灰色字体 */
+}
+
+.icon {
+    position: absolute;
+    right: 10px;
+    top: calc(50% - 10px);
+}
+
+.user-icon::after {
+    content: url('path/to/user-icon.png');
+}
+
+.scan-icon::after {
+    content: url('path/to/scan-icon.png');
+}
+
+.select-bank {
+    position: relative;
+}
+
+.arrow-icon::after {
+    content: url('path/to/arrow-icon.png');
+}
+
+.next-button {
+    width: 100%;
+    padding: 15px;
+    background-color: #007aff; /* 苹果蓝色 */
+    color: white;
+    border: none;
+    border-radius: 8px; /* 更大的圆角 */
+    cursor: pointer;
+    font-size: 18px;
+    margin-top: 20px;
+    transition: background-color 0.3s ease;
+}
+
+.next-button:hover {
+    background-color: #005bb5; /* 悬停时的深蓝色 */
+}
+
+.safety-tips {
+    margin-top: 20px;
+    font-size: 14px;
+    color: #a1a1a6; /* 浅灰色字体 */
+}
+
+select {
+    width: calc(100% - 40px);
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #e0e0e0; /* 浅灰色边框 */
+    border-radius: 6px; /* 更大的圆角 */
+    font-size: 16px;
+    background-color: #ffffff; /* 白色背景 */
+    color: #1d1d1f; /* 深灰色字体 */
+}
+
+/* Added styles */
+.transaction-details {
+    text-align: center;
+    margin: 50px auto;
+    padding: 20px;
+    border: 1px solid #e0e0e0; /* 浅灰色边框 */
+    border-radius: 10px;
+    width: 300px;
+    background-color: #f5f5f7; /* 浅灰色背景 */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.transaction-details h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    font-weight: 600;
+    color: #1d1d1f; /* 深灰色字体 */
+}
+
+.transaction-details p {
+    margin: 10px 0;
+    font-size: 16px;
+    color: #a1a1a6; /* 浅灰色字体 */
+}
+
+.transaction-details h2 {
+    font-size: 32px;
+    color: #007aff; /* 苹果蓝色 */
+}
+
+.avatar {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 10px;
+}
+
+.back-link {
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+.back-link a {
+    text-decoration: none;
+    font-size: 18px;
+    color: #007aff; /* 苹果蓝色 */
+    transition: color 0.3s;
+}
+
+.back-link a:hover {
+    color: #005bb5; /* 悬停时的深蓝色 */
+}
