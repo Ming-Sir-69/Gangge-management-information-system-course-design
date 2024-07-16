@@ -1,0 +1,122 @@
+body, html {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #ffffff; /* 白色背景 */
+    font-family: "SF Pro Text", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    color: #1d1d1f; /* 深灰色字体 */
+}
+
+/* 顶栏样式 */
+.top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #f5f5f7; /* 浅灰色背景 */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* 更柔和的阴影 */
+    border-bottom: 1px solid #e0e0e0; /* 边框颜色 */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+.back-link {
+    text-decoration: none;
+    color: #007aff; /* 苹果蓝色 */
+    font-size: 18px;
+    transition: color 0.3s;
+    margin-left: 10px;
+}
+
+.back-link:hover {
+    text-decoration: underline;
+    color: #005bb5; /* 悬停时的深蓝色 */
+}
+
+h1 {
+    margin: 0;
+    text-align: center;
+    flex-grow: 1;
+    font-size: 24px;
+    font-weight: 600;
+    color: #1d1d1f; /* 深灰色字体 */
+}
+
+/* 覆盖层样式 */
+.overlay {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.5); /* 白色半透明背景 */
+    z-index: 1000;
+}
+
+/* 弹窗样式 */
+.modal {
+    display: block;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #f5f5f7; /* 浅灰色背景 */
+    padding: 20px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    border-radius: 12px; /* 更大的圆角 */
+    z-index: 1001;
+    color: #1d1d1f; /* 深灰色字体 */
+}
+
+.container {
+    margin-top: 60px; /* 确保顶栏不会遮挡内容 */
+    padding: 20px;
+    background-color: #ffffff; /* 白色背景 */
+    border-radius: 12px; /* 更大的圆角 */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* 更柔和的阴影 */
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 600;
+    color: #1d1d1f; /* 深灰色字体 */
+}
+
+select, input[type="number"], input[type="password"] {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #e0e0e0;
+    border-radius: 6px; /* 更大的圆角 */
+    background-color: #ffffff; /* 白色背景 */
+    color: #1d1d1f; /* 深灰色字体 */
+    font-size: 16px;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #007aff; /* 苹果蓝色 */
+    color: white;
+    border: none;
+    border-radius: 8px; /* 更大的圆角 */
+    cursor: pointer;
+    font-size: 18px;
+    transition: background-color 0.3s ease;
+    display: block;
+    margin: 10px auto; /* 居中按钮 */
+}
+
+button:hover {
+    background-color: #005bb5;
+}

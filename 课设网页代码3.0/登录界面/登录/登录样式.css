@@ -1,0 +1,34 @@
+.password-toggle {
+    cursor: pointer;
+    margin-left: 10px;
+    font-size: 1.2em;
+}
+
+.valid {
+    color: #34c759; /* 绿色 */
+}
+
+.invalid {
+    color: #ff3b30; /* 红色 */
+}
+
+.popup {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #f8d7da; /* 浅红色背景 */
+    color: #721c24; /* 深红色字体 */
+    border: 1px solid #f5c6cb; /* 浅红色边框 */
+    padding: 20px;
+    border-radius: 5px;
+    z-index: 1000;
+}
+
+/* 新增样式 */
+.password-hint {
+    display: none;
+    color: #666; /* 灰色字体 */
+    font-size: 0.9em;
+}
