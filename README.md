@@ -51,3 +51,5 @@ SQL、头像、图片和附件的示例性质与分享范围需先核对，避�
 
 文档维护：**✦ EricMingle69** · [Ming-Sir-69](https://github.com/Ming-Sir-69)  
 [个人标识、许可与权限说明](PERSONAL-NOTICE.md) · 明暗页眉随 GitHub 主题自动切换。
+
+运行前请将数据库连接文件中的 `YOUR_DB_HOST`、`YOUR_DB_USER` 和 `YOUR_DB_PASSWORD` 替换为自己的配置。
