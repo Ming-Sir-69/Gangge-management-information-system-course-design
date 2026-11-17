@@ -14,9 +14,9 @@
 
 <p align="center"><a href="README.md">简体中文</a> · <b>English</b></p>
 
-# Cross-bank financial platform · Information systems course project
+# IFM Cross-bank Financial Management System
 
-This course project uses PHP, JavaScript, CSS and MySQL to organize account linking across banks, cross-bank transfers, stock and gold workflows, and an overview of bank balances and holdings. The repository contains web source, database scripts, data-flow diagrams and a course report. Operations are simulated in a local database; no live banking or securities trading system is connected.
+The IFM Cross-bank Financial Management System brings a user’s accounts at multiple banks into one platform, with a design covering cross-bank transfers, stock and gold trading, and total asset aggregation, similar in form to a third-party payment platform. The course implementation uses PHP, JavaScript, CSS and MySQL. The repository contains web source, database scripts, data-flow diagrams and a course report. Operations are simulated in a local database; no live banking or securities trading system is connected.
 
 ## Overview
 
@@ -30,7 +30,9 @@ Users register and sign in, add bank accounts through the business modules, and 
 | Gold | Account addition, price generation and gold details | [Gold](课设网页代码3.0/黄金管理/) |
 | Total assets | Aggregation of bank, stock and gold assets | [Assets](课设网页代码3.0/总资产/) |
 
-Gold purchases are within the course design scope. The available source includes supporting purchase queries and an account-addition page, but no complete trade-processing file equivalent to the stock purchase handler was found.
+The course report includes gold purchase screenshots, but the repository lacks the gold purchase page, the gold account-addition handler and the trade handler. This workflow cannot run.
+
+The transfer code charges a fee of 0.1% of the transfer amount. The schema includes fund information and user fund holding tables, but no corresponding business functionality is implemented.
 
 ## Design highlights
 
@@ -66,7 +68,9 @@ Database access uses PHP MySQLi; the connection file contains configuration plac
 - This is a course artifact without validation for real payments, settlement or financial security. It is not for real-money transactions.
 - Stock and gold prices come from local scripts, not live market feeds; total assets reflect the course database's valuations.
 - The transfer handler uses transactions, but concurrency, authorization and failure paths have not been fully tested. Transaction usage alone does not establish reliable funds handling.
-- The gold purchase materials are incomplete; this documentation refresh did not perform end-to-end runtime acceptance.
+- The report includes gold purchase screenshots, but the source lacks the purchase page, account-addition handler and trade handler; this workflow cannot run.
+- The administrator interface is a placeholder page and is not implemented.
+- The system has not completed end-to-end runtime acceptance.
 - SQL, images and attachments retain existing materials. Check their provenance and sharing scope before reuse; do not import real customer data.
 
 ## Acknowledgements
