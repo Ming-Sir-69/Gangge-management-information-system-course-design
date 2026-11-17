@@ -1,53 +1,102 @@
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="readme-assets/header-dark.svg">
-  <source media="(prefers-color-scheme: light)" srcset="readme-assets/header-light.svg">
-  <img alt="Management Information System · Coursework · ✦ EricMingle69" src="readme-assets/header-light.svg" width="100%">
+  <source media="(prefers-color-scheme: dark)" srcset="readme-assets/cover-en-dark.png">
+  <img src="readme-assets/cover-en-light.png" alt="Cross-bank financial platform course project" width="100%">
 </picture>
 
+<p align="center"><a href="课设网页代码3.0/">Source</a> · <a href="项目概况/">Design</a> · <a href="数据流程图/">Data flows</a> · <a href="https://github.com/Ming-Sir-69">Maintainer</a></p>
+
 <p align="center">
-  <a href="README.md">简体中文</a> · <a href="README.en.md">English</a> · <a href="PERSONAL-NOTICE.md">✦ EricMingle69</a>
+<a href="LICENSE"><img alt="Apache-2.0" src="https://img.shields.io/badge/license-Apache--2.0-F6C555?style=flat-square&labelColor=2E2A26"></a>
+<img alt="PHP" src="https://img.shields.io/badge/PHP-6B655C?style=flat-square&labelColor=2E2A26">
+<img alt="MySQL" src="https://img.shields.io/badge/MySQL-6B655C?style=flat-square&labelColor=2E2A26">
+<img alt="Course project" src="https://img.shields.io/badge/course-project-A8A196?style=flat-square&labelColor=2E2A26">
 </p>
 
-# Management Information System · Coursework
+<p align="center"><a href="README.md">简体中文</a> · <b>English</b></p>
 
-Course web source, data-flow diagrams, project outlines and a design document.
-For participants, teachers and readers studying PHP Web systems who want to revisit the design.
+# Cross-bank financial platform · Information systems course project
 
-## Read design before implementation
+This course project uses PHP, JavaScript, CSS and MySQL to organize account linking across banks, cross-bank transfers, stock and gold workflows, and an overview of bank balances and holdings. The repository contains web source, database scripts, data-flow diagrams and a course report. Operations are simulated in a local database; no live banking or securities trading system is connected.
 
-| Goal | Entry |
+## Overview
+
+Users register and sign in, add bank accounts through the business modules, and view transfers, holdings and total assets. Account linking means associating records in the course database, not bank authorization or verification of real accounts.
+
+| Module | Course materials | Source |
+| --- | --- | --- |
+| User management | Registration, sign-in, password reset and profiles | [Sign-in](课设网页代码3.0/登录界面/) · [Users](课设网页代码3.0/用户管理/) |
+| Bank transfers | Multiple bank accounts, balance queries, transfers and records | [Transfers](课设网页代码3.0/银行转账/) |
+| Stocks | Account addition, purchases, holdings and price generation | [Stocks](课设网页代码3.0/股票管理/) |
+| Gold | Account addition, price generation and gold details | [Gold](课设网页代码3.0/黄金管理/) |
+| Total assets | Aggregation of bank, stock and gold assets | [Assets](课设网页代码3.0/总资产/) |
+
+Gold purchases are within the course design scope. The available source includes supporting purchase queries and an account-addition page, but no complete trade-processing file equivalent to the stock purchase handler was found.
+
+## Design highlights
+
+- **Multiple accounts per user:** account records link to users; transfer and purchase pages select a funding account.
+- **Balances and transfer records:** the transfer handler uses a MySQLi transaction for both balance updates and the transaction record, with rollback on exceptions.<sup>[[1]](#references)</sup>
+- **Three asset classes:** bank balances are summed; stock and gold holdings are valued as quantity times the current database price. Their sum is total assets, with composition displayed using Chart.js.<sup>[[2]](#references)</sup>
+
+## Results
+
+The [web source](课设网页代码3.0/), [database schema](课设网页代码3.0/数据库.sql), [data-flow diagrams](数据流程图/) and [course report](<管理信息系统课设说明书 .docx>) retain the materials from business analysis through page implementation.
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="readme-assets/assets-en-dark.png">
+  <img src="readme-assets/assets-en-light.png" alt="Three asset classes aggregated in the source" width="100%">
+</picture>
+
+The asset aggregation can be checked directly in the source:
+
+```php
+$totalAssets = $bankAssets + $goldAssets + $stockAssets;
+```
+
+Source: [asset page](课设网页代码3.0/总资产/总资产界面.php); component calculations: [asset handler](课设网页代码3.0/总资产/总资产处理.php).
+
+## Method
+
+Read in the order of business flows, data tables, then pages and handlers. Start with the [design materials](项目概况/) and [data-flow diagrams](数据流程图/), compare the [schema](课设网页代码3.0/数据库.sql), and trace modules from the [sign-in page](课设网页代码3.0/登录界面/登录/登录界面.php).
+
+Database access uses PHP MySQLi; the connection file contains configuration placeholders.<sup>[[1]](#references)</sup> Before local execution, check PHP extensions, the MySQL version, schema initialization order and seed data, using self-created test accounts. A complete environment version inventory and a standalone Release are not available, so no unverified one-command setup is supplied.
+
+## Limitations
+
+- This is a course artifact without validation for real payments, settlement or financial security. It is not for real-money transactions.
+- Stock and gold prices come from local scripts, not live market feeds; total assets reflect the course database's valuations.
+- The transfer handler uses transactions, but concurrency, authorization and failure paths have not been fully tested. Transaction usage alone does not establish reliable funds handling.
+- The gold purchase materials are incomplete; this documentation refresh did not perform end-to-end runtime acceptance.
+- SQL, images and attachments retain existing materials. Check their provenance and sharing scope before reuse; do not import real customer data.
+
+## Acknowledgements
+
+The project uses PHP/MySQLi and Chart.js. Collaborative course materials retain their original attribution; documentation maintenance does not reassign authorship.
+
+The cover illustration was generated by an image-generation model and processed for this project. ICBC, HSBC, Citi and BOC identify bank buildings in the illustration only; they imply no API integration, partnership or endorsement.
+
+## References
+
+1. PHP Documentation Group. *PHP Manual: MySQL Improved Extension*, online manual; the project runtime version is not pinned. [MySQLi](https://www.php.net/manual/en/book.mysqli.php). Corresponds to database connections, prepared statements and transaction APIs in the source.
+2. Chart.js contributors. *Chart.js Documentation*, online documentation; the source CDN dependency is not version-pinned. [Documentation](https://www.chartjs.org/docs/latest/). Corresponds to the asset composition chart.
+
+## Related research
+
+This paper provides context for data organization, not a claimed implementation source for the course code.
+
+- Codd, E. F. (1970). *A Relational Model of Data for Large Shared Data Banks*. Communications of the ACM, 13(6), 377–387. [DOI](https://doi.org/10.1145/362384.362685). Relates to joining user, account, holding and price tables for asset aggregation.
+
+## Repository structure
+
+| Path | Contents |
 | --- | --- |
-| Overall course design | [Design document](<管理信息系统课设说明书 .docx>) |
-| Features, structure and database materials | [Project outline](项目概况/) |
-| Data flow | [Diagrams](数据流程图/) |
-| Web source | [课设网页代码3.0](课设网页代码3.0/) |
-| Login and main pages | [Login](课设网页代码3.0/登录界面/) · [Main interface](课设网页代码3.0/主界面/) |
-
-The source directory includes PHP, JavaScript, CSS and SQL.
-Directory names for registration, login, users, transfers, stocks, gold and total assets describe how the course materials are organized.
-
-## Reading and runtime preparation
-
-1. Download the design document and understand the system goals and data flow.
-2. Use the outline to map pages, databases and features.
-3. Enter the source through login and main pages, then follow the relevant feature directories.
-4. Before running, establish PHP/database versions, configuration, initialization order and initial account setup.
-
-No verifiable complete runtime configuration or independent Release is established, so no speculative startup command is provided.
-Course features should not be treated as a validated real financial system.
-
-## Additions
-
-Specify participants, responsibilities, environment and files; reproduction notes should include inputs and expected results.
-Check whether SQL, avatars, images and attachments are shareable examples before including them, and avoid real user data.
-
-## Sources and license
-
-The repository retains [Apache-2.0 LICENSE](LICENSE) and its original terms.
-Course participants and third-party materials retain their attribution; authors and license scope for code, documents, images and attachments require separate confirmation.
-Personal maintenance does not reattribute collaborative coursework as personal original work.
+| `课设网页代码3.0/` | PHP pages, JavaScript, CSS and SQL |
+| `项目概况/` | Functional and database materials, directory notes and PlantUML text |
+| `数据流程图/` | JPG diagrams and Visio source files |
+| `管理信息系统课设说明书 .docx` | Course report |
+| `readme-assets/` | Chinese/English light/dark covers and existing headers |
 
 ---
 
 Documentation maintained by **✦ EricMingle69** · [Ming-Sir-69](https://github.com/Ming-Sir-69)  
-[Personal identity, licensing and permissions](PERSONAL-NOTICE.md) · The header follows your GitHub theme.
+License: [Apache-2.0](LICENSE); component attribution and permissions: [maintenance and permissions notice](PERSONAL-NOTICE.md).
